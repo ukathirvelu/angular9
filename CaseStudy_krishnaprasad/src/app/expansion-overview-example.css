@@ -1,0 +1,44 @@
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.course-heading {
+  font-size: 15px;
+  background-color: rgb(139, 194, 68);
+  color: floralwhite;
+  padding-left: 20px;
+  height: 40px !important;
+}
+.course-name {
+  padding-left: 10px;
+  width: 120px;
+}
+.course-button {
+  color: blue;
+}
+.new-course {
+  margin-left: 60px;
+}
+.course-count {
+  padding-left: 40px;
+  width: 150px;
+}
+.course-status {
+  margin-left: 60px;
+}
+.expansion-panel {
+  background-color: rgb(107, 107, 177) !important;
+  height: 40px !important;
+}
+.panel-title {
+  color: floralwhite !important;
+}
+.test {
+  border-radius: 4px 4px 0 0;
+  padding: 0em .0em 0em;
+}
+.router-display {
+  padding-left: 70px;
+}
+.home-page {
+  margin-left: 90%;
+}

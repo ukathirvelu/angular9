@@ -1,0 +1,28 @@
+
+<div >
+    <br>
+    <table *ngFor="let topic of topicList">
+      <tr>
+        <td [style.display]="'none'" class="course-name"><input type="text" value="{{topic.id}}" #id></td>
+        <td class="course-name"><input type="text" value="{{topic.topicName}}" #topicName disabled></td>
+        <td class="course-status"><input type="text" value="{{topic.description}}" #description disabled></td>
+        <td class="course-status"><input type="text" value="{{topic.startDate}}" #startDate disabled></td>
+        <td class="course-status"><input type="text" value="{{topic.endDate}}" #endDate disabled></td>
+        <td><button (click)="updateTopic(id.value, topicName.value,description.value,startDate.value,endDate.value,0)" class="course-button">edit topic</button></td>
+        <td><button (click)="updateTopic(id.value, topicName.value,description.value,startDate.value,endDate.value,1)" class="course-button">add new toic</button></td>
+      </tr>
+    </table>
+    <br>
+  
+   <div *ngIf="updateTopicFlag">
+     <br>
+                  <input [style.display]="'none'" type="text" value="{{topicDtos.id}}" #id>&nbsp;
+                  TrainingName:<input type="text" value="{{topicDtos.topicName}}" #topicName>&nbsp;
+                  Topic:<input type="text" value="{{topicDtos.description}}" #description>&nbsp;
+                  StartDate:<input type="text" value="{{topicDtos.startDate}}" #StartDate>&nbsp;
+                  EndDate:<input type="text"  value="{{topicDtos.endDate}}" #EndDate>
+        <button (click)="submitTopic(id.value, topicName.value, description.value, StartDate.value, EndDate.value)" class="course-button">submit</button>
+     
+    </div> 
+  </div>
+

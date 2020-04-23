@@ -1,0 +1,27 @@
+<div >
+    <br>
+    <table *ngFor="let member of teamMembers">
+      <tr>
+        <td [style.display]="'none'" class="course-name"><input type="text" value="{{member.id}}" #id></td>
+        <td class="course-name"><input type="text" value="{{member.firstName}}" #firstName disabled></td>
+        <td class="course-status"><input type="text" value="{{member.lastName}}" #lastName disabled></td>
+        <td class="course-status"><input type="text" value="{{member.phone}}" #phone disabled></td>
+        <td class="course-status"><input type="text" value="{{member.email}}" #email disabled></td>
+        <td><button (click)="updateTeamMember(id.value, firstName.value,lastName.value,phone.value,email.value,0)" class="course-button">edit member</button></td>
+        <td><button (click)="updateTeamMember(id.value, firstName.value,lastName.value,phone.value,email.value,1)" class="course-button">add new member</button></td>
+      </tr>
+    </table>
+    <br>
+  
+   <div *ngIf="updateTeamMemberFlag">
+     <br>
+                  <input [style.display]="'none'" type="text" value="{{teamMembersDto.id}}" #id>&nbsp;
+        firstName:<input type="text" value="{{teamMembersDto.firstName}}" #firstName>&nbsp;
+        lastName:<input type="text" value="{{teamMembersDto.lastName}}" #lastName>&nbsp;
+        phone:<input type="text" value="{{teamMembersDto.phone}}" #phone>&nbsp;
+        email:<input type="text"  value="{{teamMembersDto.email}}" #email>
+        <button (click)="submitTeamMember(id.value, firstName.value, lastName.value, phone.value, email.value)" class="course-button">submit</button>
+     
+    </div> 
+  </div>
+

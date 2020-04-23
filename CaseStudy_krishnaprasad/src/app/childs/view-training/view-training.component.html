@@ -1,0 +1,28 @@
+
+<div >
+    <br>
+    <table *ngFor="let training of trainings">
+      <tr>
+        <td [style.display]="'none'" class="course-name"><input type="text" value="{{training.id}}" #id></td>
+        <td class="course-name"><input type="text" value="{{training.trainingName}}" #trainingName disabled></td>
+        <td class="course-status"><input type="text" value="{{training.topic}}" #topic disabled></td>
+        <td class="course-status"><input type="text" value="{{training.startDate}}" #startDate disabled></td>
+        <td class="course-status"><input type="text" value="{{training.endDate}}" #endDate disabled></td>
+        <td><button (click)="updateTraining(id.value, trainingName.value,topic.value,startDate.value,endDate.value,0)" class="course-button">edit member</button></td>
+        <td><button (click)="updateTraining(id.value, trainingName.value,topic.value,startDate.value,endDate.value,1)" class="course-button">add new member</button></td>
+      </tr>
+    </table>
+    <br>
+  
+   <div *ngIf="updateViewTrainingFlag">
+     <br>
+                  <input [style.display]="'none'" type="text" value="{{viewTraining.id}}" #id>&nbsp;
+                  TrainingName:<input type="text" value="{{viewTraining.trainingName}}" #trainingName>&nbsp;
+                  Topic:<input type="text" value="{{viewTraining.topic}}" #topic>&nbsp;
+                  StartDate:<input type="text" value="{{viewTraining.startDate}}" #StartDate>&nbsp;
+                  EndDate:<input type="text"  value="{{viewTraining.endDate}}" #EndDate>
+        <button (click)="submitTraining(id.value, trainingName.value, topic.value, StartDate.value, EndDate.value)" class="course-button">submit</button>
+     
+    </div> 
+  </div>
+

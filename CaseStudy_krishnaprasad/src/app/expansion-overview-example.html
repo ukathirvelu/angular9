@@ -1,0 +1,143 @@
+<button (click)='getTrainingStatus()' class="course-heading">Training this month </button>
+<a routerLink="/homePage" class="home-page">go to home page</a>
+
+<div *ngIf="showCourseList">
+  <table *ngFor="let syllabus of data">
+    <tr>
+      <td class="course-name"><input type="text" value="{{syllabus.title}}" disabled></td>
+      <td class="course-status"><input type="text" value="{{syllabus.status}}" disabled></td>
+      
+    </tr>
+  </table>
+  <br>
+  <div *ngIf="data.length > 0" class="course-count">Total courses: {{data.length}}</div>
+  <div *ngIf="courseCount == data.length">
+    <br>
+    <button class="course-button" (click)="addCourse()">add new course</button>
+    <div class="new-course" *ngIf="showAddCourse">
+      <br>
+      Title:<input type="text" #title>&nbsp;Status:<input type="text" #status>&nbsp;<button
+        (click)="submitCourse(title,status)" class="course-button">submit</button>
+    </div>
+  </div>
+</div>
+<br>
+<!-- collapse bar -->
+<mat-accordion>
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(10)">
+    <mat-expansion-panel-header class="expansion-panel">
+      <mat-panel-title class="panel-title">
+        Ongoing trainings
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <table>
+      <th>Training name</th>
+      <th>Start date</th>
+      <th>Planned end date</th>
+      <th>Number of topics</th>
+      <th>Count of members</th>
+      <th>Progress %</th>
+
+      <tr *ngFor="let traning of ongoingTrainings">
+        <td>
+
+          <mat-form-field>
+            <input matInput test>{{traning.trainingName}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.StartDate}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.PlannedEndDate}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.numberOfTopics}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.countOfMembers}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.progress}}
+          </mat-form-field>
+        </td>
+
+      </tr>
+    </table>
+  </mat-expansion-panel><br>
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(11)">
+    <mat-expansion-panel-header class="expansion-panel">
+      <mat-panel-title class="panel-title">
+        Upcoming trainings
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table>
+      <th>Training name</th>
+      <th>Start date</th>
+      <th>Planned end date</th>
+      <th>Number of topics</th>
+      <th>Count of members</th>
+      <tr *ngFor="let traning of upcomingTrainings">
+        <td>
+
+          <mat-form-field>
+            <input matInput>{{traning.trainingName}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.StartDate}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.PlannedEndDate}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.numberOfTopics}}
+          </mat-form-field>
+        </td>
+        <td>
+
+          <mat-form-field>
+            <input matInput> {{traning.countOfMembers}}
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+</mat-accordion>
+
+    <br>
+    <table>
+      <tr>
+        <td>
+          <nav>
+          <a routerLink="/viewTeamMembers">View Team Members</a><br><br><br>
+          <a routerLink="/viewTraining">View Training Page</a><br><br><br>
+          <a routerLink="/trainingTopics">view Training Topics</a>
+        </nav></td>
+        <td  class="router-display"><router-outlet></router-outlet></td>
+      </tr>
+    </table>  
+  
