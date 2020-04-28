@@ -1,0 +1,29 @@
+.panel-title {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid  #343a40;
+  }
+
+.expansion-panel{
+    //background-color: rgb(146, 146, 140);
+    background-color: #343a40;
+}
+
+
+
+div span.only-show-on-hover {
+  visibility: hidden;
+}
+div:hover span.only-show-on-hover  {
+  visibility: visible;
+}
+
+div div.only-show-on-hover {
+  visibility: hidden;
+}
+div:hover div.only-show-on-hover  {
+  visibility: visible;
+}
+

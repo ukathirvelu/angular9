@@ -1,0 +1,160 @@
+<!-- <button class="btn btn-danger" style="width:100px" (click)="navPageTwo()"> Team Members</button> -->
+<!-- <button class="btn btn-danger" style="width:100px" (click)="navPageThird()"> Training Details</button> -->
+<h1 align="center">Dashboard</h1>
+
+<table class="table">
+ 
+  <thead class="thead-dark">
+    <tr>
+      <!-- <th scope="col">#</th> -->
+      <th scope="col">Training this month</th>
+      <th scope="col">Status</th>
+      <th scope="col">Progress %</th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+   
+    <tr *ngFor="let traning of staticTable">
+
+      <td>
+
+        
+        <mat-label>{{traning.trainingName}}</mat-label>
+
+      </td>
+      <td>
+        <mat-label>{{traning.progress}} </mat-label>
+      </td>
+
+      <td>
+        <mat-label>{{traning.percentage}}% </mat-label>
+      </td>
+     
+
+   
+
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<mat-accordion>
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(11)">
+    <mat-expansion-panel-header class="expansion-panel">
+      <mat-panel-title class="panel-title">
+        Upcoming trainings
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <table class="table table-striped">
+      <th>Training name</th>
+      <th>Start date</th>
+      <th>Planned end date</th>
+      <th>No. of Topics</th>
+      <th>Count of members</th>
+      <!-- <th>Progress %</th> -->
+
+      <tr *ngFor="let traning of upcomingTrainings | keyvalue">
+
+        <td>
+
+
+          <mat-label>{{traning.key}}</mat-label>
+
+        </td>
+        <td>
+          <mat-label> {{traning.value[0].startDate}}</mat-label>
+        </td>
+        <td>
+          <mat-label> {{traning.value[0].endDate}}</mat-label>
+        </td>
+        <td>
+          <div>
+            <mat-label> {{traning.value.length}}</mat-label>
+            <div class="only-show-on-hover" *ngFor="let topic of traning.value">
+              <span class="only-show-on-hover">{{topic.topicName}}</span>
+            </div>
+          </div>
+        </td>
+
+        <td>
+          <div *ngFor="let traningMap of upcomingTrainingsMap | keyvalue">
+            <div *ngIf="traning.key==traningMap.key">
+              <mat-label> {{traningMap.value.length}}</mat-label>
+              <div class="only-show-on-hover" *ngFor="let member of traningMap.value">
+                <span class="only-show-on-hover">{{member.teamMembers}}</span>
+              </div>
+            </div>
+          </div>
+        </td>
+
+
+      </tr>
+    </table>
+  </mat-expansion-panel><br>
+</mat-accordion>
+<!-------------------------------------------------------------------------------------------------->
+
+<mat-accordion>
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(10)">
+    <mat-expansion-panel-header class="expansion-panel">
+      <mat-panel-title class="panel-title">
+        Ongoing trainings
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <table class="table table-striped">
+      <th>Training name</th>
+      <th>Start date</th>
+      <th>Planned end date</th>
+      <th>No. of Topics</th>
+      <th>Count of members</th>
+      
+
+      <tr *ngFor="let traning of ongoingTrainings | keyvalue">
+        <td>
+
+          <!-- <mat-form-field> -->
+          <!-- <input matInput placeholder="Input"> -->
+          <mat-label>{{traning.key}}</mat-label>
+          <!-- <input matInput test>{{traning.trainingName}} -->
+          <!-- </mat-form-field> -->
+        </td>
+        <td>
+          <mat-label> {{traning.value[0].startDate}}</mat-label>
+        </td>
+        <td>
+          <mat-label> {{traning.value[0].endDate}}</mat-label>
+        </td>
+        <td>
+          <div>
+            <mat-label> {{traning.value.length}}</mat-label>
+             <div *ngFor="let topic of traning.value">
+              <span class="only-show-on-hover">{{topic.topicName}}</span>
+            </div> 
+          </div>
+        </td>
+
+        <td>
+          <div *ngFor="let traningMap of ongoingTrainingsMap | keyvalue">
+            <div *ngIf="traning.key==traningMap.key">
+              <mat-label> {{traningMap.value.length}}</mat-label>
+              <div class="only-show-on-hover" *ngFor="let member of traningMap.value">
+                <span class="only-show-on-hover">{{member.teamMembers}}</span>
+              </div>
+            </div>
+          </div>
+        </td>
+      
+
+      </tr>
+    </table>
+  </mat-expansion-panel><br>
+</mat-accordion>
+
+<!-- <button (click)="getMemberMapTraining()"> check</button> -->
