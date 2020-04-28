@@ -1,0 +1,26 @@
+<h1 align="center">Training Details</h1>
+<button class="btn btn-success"  (click)="addTraining()"> Add Training</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="hidden">Id</th>
+            <th>Training Names</th>
+            <th>Topics</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let training of trainings">
+            <td class="hidden"></td>
+            <td>{{training.trainingName}}</td>
+            <td>{{training.topicName}}</td>
+            <td>{{training.startDate}}</td>
+            <td>{{training.endDate}}</td>
+            <input type="hidden" value= {{training.trainingSeason}}>
+            <td><button class="btn btn-danger" (click)="deleteTraining(training)">Delete</button></td>
+            <td><button class="btn btn-primary" >Edit</button></td>
+        </tr>
+    </tbody>
+
+</table>
